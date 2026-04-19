@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Initialize conda
+# Check if conda is in the path
+if command -v conda &> /dev/null; then
+    eval "$(conda shell.bash hook)"
+else
+    # Fallback: Try common conda locations if not in PATH
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        source "$HOME/anaconda3/etc/profile.d/conda.sh"
+    elif [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        source "$HOME/miniconda3/etc/profile.d/conda.sh"
+    elif [ -f "/opt/conda/etc/profile.d/conda.sh" ]; then
+        source "/opt/conda/etc/profile.d/conda.sh"
+    else
+        echo "Error: 'conda' not found. Please ensure it is in your PATH."
+        exit 1
+    fi
+fi
+
+# Activate the environment
+conda activate whisperx
+
+# Run the python script with all passed arguments
+python /home/alex/Ai/Chinread/chinread.py "$@"
