@@ -35,7 +35,7 @@ Because you have configured a custom Bash wrapper (`chread`) on your system, you
 
 ```bash
 # Automatically transcribes current audio using the OpenAI API
-chread audio.mp3 --online
+moreader audio.mp3 --online
 ```
 This wrapper automatically activates your `whisperx` Conda environment and executes `chinread.py` behind the scenes. It generates the `audio.json` perfectly segmented right next to your mp3 file. 
 
