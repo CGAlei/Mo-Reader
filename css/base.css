@@ -1,0 +1,120 @@
+/* ================= UBICACION FISICA DE LOS FONTS ================= */
+@font-face {
+    font-family: "AiDian-QianFengYingBiXingShu";
+    src: url("../fonts/dian.ttf") format("truetype");
+}
+@font-face {
+    font-family: "OPPOSans";
+    src: url("../fonts/OPPOSans.ttf") format("truetype");
+}
+@font-face {
+    font-family: "TsangerYuYangT W05";
+    src: url("../fonts/Tsanger.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Taipei Sans TC Beta";
+    src: url("../fonts/Taipei.ttf") format("truetype");
+}
+@font-face {
+    font-family: "zixiaohundanqingxingshu_trial";
+    src: url("../fonts/zixiao.ttf") format("truetype");
+}
+
+/* ================= CSS VARIABLES ================= */
+:root {
+    --ui-font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    --reader-font-family: "Taipei Sans TC Beta", "Microsoft YaHei", sans-serif;
+    --font-size: 28px;
+    --transition-speed: 0.4s;
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 1. MIDNIGHT SLATE */
+:root[data-theme="midnight"] {
+    --bg: #0f172a;
+    --panel-bg: #1e293b;
+    --panel-hover: #334155;
+    --text: #cbd5e1;
+    --next-word: #64748b;
+    --border: #334155;
+    --tooltip-bg: rgba(15, 23, 42, 0.95);
+    --highlight: #38bdf8;
+}
+
+/* 2. OLED BLACK */
+:root[data-theme="oled"] {
+    --bg: #000000;
+    --panel-bg: #121212;
+    --panel-hover: #222222;
+    --text: #e0e0e0;
+    --next-word: #555555;
+    --border: #2a2a2a;
+    --tooltip-bg: rgba(10, 10, 10, 0.98);
+    --highlight: #38bdf8;
+}
+
+/* 3. NORDIC NIGHT */
+:root[data-theme="nordic"] {
+    --bg: #2e3440;
+    --panel-bg: #3b4252;
+    --panel-hover: #434c5e;
+    --text: #d8dee9;
+    --next-word: #7b88a1;
+    --border: #4c566a;
+    --tooltip-bg: rgba(46, 52, 64, 0.98);
+    --highlight: #88c0d0;
+}
+
+/* 4. GRUVBOX */
+:root[data-theme="gruvbox"] {
+    --bg: #282828;
+    --panel-bg: #3c3836;
+    --panel-hover: #504945;
+    --text: #ebdbb2;
+    --next-word: #a89984;
+    --border: #504945;
+    --tooltip-bg: rgba(40, 40, 40, 0.95);
+    --highlight: #fe8019;
+}
+
+/* 5. EVERFOREST */
+:root[data-theme="everforest"] {
+    --bg: #2b3339;
+    --panel-bg: #323c41;
+    --panel-hover: #3a454a;
+    --text: #d3c6aa;
+    --next-word: #859289;
+    --border: #4a555b;
+    --tooltip-bg: rgba(43, 51, 57, 0.95);
+    --highlight: #a7c080;
+}
+
+/* ================= GLOBAL LAYOUT ================= */
+body {
+    font-family: var(--ui-font-family);
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+.app-layout {
+    display: flex;
+    height: 100vh;
+    height: 100dvh;
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: inherit;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}

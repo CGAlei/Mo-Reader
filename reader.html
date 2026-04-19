@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="oled">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chinese Reader PRO - Library Edition</title>
+    
+    <!-- CSS Modules -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <!-- External Libs (local copies — no CDN needed) -->
+    <script src="libs/pinyin-pro.js"></script>
+</head>
+<body data-active-style="underline-text">
+    <div class="app-layout">
+        <!-- LEFT SIDEBAR: LIBRARY -->
+        <aside class="sidebar">
+            <header class="sidebar-header">
+                <div class="sidebar-header-top">
+                    <h2>📚 My Library</h2>
+                    <button class="btn-collapse" id="collapseBtn" title="Hide sidebar">◀</button>
+                </div>
+                
+                <div class="sidebar-actions">
+                    <button class="btn-upload" onclick="document.getElementById('folderInput').click()">
+                        <span>📂</span> Load Folder
+                    </button>
+                    <input type="file" id="folderInput" webkitdirectory directory multiple class="hidden-input" />
+
+                    <div class="view-toggle-group">
+                        <button class="view-toggle-btn active" id="btnViewTree">📂 By Folder</button>
+                        <button class="view-toggle-btn" id="btnViewMostRead">🔥 Most Read</button>
+                    </div>
+
+                    <div class="dict-controls">
+                        <div class="dict-info">
+                            <span class="title">Session History</span>
+                            <span class="subtitle" id="readCountStats">0 sessions tracked</span>
+                        </div>
+                        <div class="dict-tools">
+                            <button class="btn-icon" id="btnExportCounts" title="Save read history">💾</button>
+                            <button class="btn-icon" id="btnImportCounts" title="Restore read history">📂</button>
+                            <input type="file" id="countsInput" accept=".json" class="hidden-input" />
+                        </div>
+                    </div>
+
+                    <div class="dict-controls">
+                        <div class="dict-info" id="dictStats">
+                            <span class="title">My Dictionary</span>
+                            <span class="subtitle">0 words saved</span>
+                        </div>
+                        <div class="dict-tools">
+                            <a href="#" class="btn-icon" id="btnExportDB" title="Download saved translations" style="text-decoration: none; display: flex; align-items: center; justify-content: center; cursor: pointer;">💾</a>
+                            <button class="btn-icon" id="btnImportDB" title="Load translations backup">📂</button>
+                            <input type="file" id="dictInput" accept=".json" class="hidden-input" />
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <nav class="session-list" id="sessionList">
+                <div class="empty-state" style="font-size: 14px; margin-top: 20px;">
+                    No library loaded.<br />Click 'Load Folder' above to begin.
+                </div>
+            </nav>
+        </aside>
+
+        <!-- RIGHT MAIN: PLAYER -->
+        <main class="main-content">
+            <!-- Settings Bar -->
+            <section class="settings-bar">
+                <div class="setting-group">
+                    <span>🎨</span>
+                    <select id="themeSelect">
+                        <option value="midnight">Midnight</option>
+                        <option value="oled" selected>OLED</option>
+                        <option value="nordic">Nordic</option>
+                        <option value="gruvbox">Gruvbox</option>
+                        <option value="everforest">Everforest</option>
+                    </select>
+                    <input type="color" id="colorSelect" value="#38bdf8" title="Highlight Color" />
+                </div>
+
+                <div class="setting-group">
+                    <span>✨</span>
+                    <select id="activeStyleSelect">
+                        <option value="underline-text">Text + Underline</option>
+                        <option value="underline-only">Underline Only</option>
+                        <option value="background">Karaoke Block</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <span>🎬</span>
+                    <select id="animSelect">
+                        <option value="spring">Bouncy</option>
+                        <option value="pop" selected>Pop</option>
+                        <option value="smooth">Smooth</option>
+                        <option value="none">No Motion</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <span>📖</span>
+                    <button id="dictHighlightBtn" class="dict-highlight-btn" title="Toggle dictionary word highlight">Dict</button>
+                </div>
+
+                <div class="setting-group">
+                    <span>🔤</span>
+                    <select id="fontSelect">
+                        <option value='"Taipei Sans TC Beta", "Microsoft YaHei", sans-serif'>Taipei (Sans)</option>
+                        <option value='"AiDian-QianFengYingBiXingShu", "STKaiti", serif'>Classic (Serif)</option>
+                        <option value='"zixiaohundanqingxingshu_trial", "zixiaohundanqingxingshu_trial", serif'>Elegant (FangSong)</option>
+                        <option value='"OPPOSans", Courier, monospace'>OPPOSans (Monospace)</option>
+                        <option value='"TsangerYuYangT W05", Courier, monospace'>Gen (Monospace)</option>
+                    </select>
+                    <input type="range" id="sizeSelect" min="20" max="60" value="28" title="Font Size" />
+                </div>
+            </section>
+
+            <!-- Audio Controls -->
+            <section class="audio-container">
+                <audio id="audioPlayer"></audio>
+                <div class="custom-player">
+                    <button id="playBtn" class="player-btn">▶</button>
+                    <div class="time-display" id="currentTimeDisplay">00:00</div>
+                    <input type="range" id="seekBar" class="seek-bar" min="0" max="100" value="0" step="0.1" title="Seek" />
+                    <div class="time-display" id="totalTimeDisplay">00:00</div>
+                </div>
+            </section>
+
+            <!-- Transcript Area -->
+            <article class="transcript-wrapper">
+                <div id="transcript">
+                    <div class="empty-state">
+                        <span>Welcome to Chinese Reader PRO</span>
+                        <span style="font-size: 16px;">Load your library folder on the left to begin learning.</span>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- UI Overlay Elements -->
+    <div id="tooltip" class="tooltip"></div>
+    <button id="fullscreenBtn" class="floating-btn" title="Toggle fullscreen">⛶</button>
+    <button id="reopenBtn" class="floating-btn" title="Show library">▶</button>
+    <div id="focusHint">Press <span>[A]</span> to toggle focus mode</div>
+    <button id="hamburgerBtn" aria-label="Toggle library sidebar">☰</button>
+
+    <!-- App Logic -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
