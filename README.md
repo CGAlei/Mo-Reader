@@ -28,3 +28,26 @@ Mo reader is a powerful, offline-first Chinese reading and dictionary web applic
 1. Open `reader.html` in your browser for desktop usage.
 2. For Android offline usage, run `python build_android.py` to generate the bundled `.html` file.
 3. Use the sidebar to seamlessly navigate and read your stored sessions.
+
+### Creating a Reading Session (Transcribing Audio)
+
+Because you have configured a custom Bash wrapper (`chread`) on your system, you have zero friction. Simply place your recorded audio file into a new directory inside `Sessions/`, navigate to that folder, and run:
+
+```bash
+# Automatically transcribes current audio using the OpenAI API
+chread audio.mp3 --online
+```
+This wrapper automatically activates your `whisperx` Conda environment and executes `chinread.py` behind the scenes. It generates the `audio.json` perfectly segmented right next to your mp3 file. 
+
+### Dictionary Enrichment
+
+I have just modified `enrich_dict.py` so that it automatically defaults to `Dict/chinese_reader_dictionary_backup.json` from the repository. You **never need to type the source or output file paths again**. 
+
+Run the existing `enrich.sh` helper from anywhere on your system:
+```bash
+~/Ai/Chinread/enrich.sh
+```
+It will always auto-detect your `.env` key, load the default dictionary, and output `chinese_reader_dictionary_backup_enriched.json` perfectly. 
+
+### Moving to a New PC (Future-Proofing)
+If you ever clone this on a new PC and forget how you set up your frictionless terminal commands, refer to the `commands.md` file in this repository. It contains the exact scripts you originally placed in your `~/.local/bin/` folder to achieve this!

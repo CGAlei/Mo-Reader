@@ -31,6 +31,14 @@ import sys
 import time
 from typing import Optional
 
+import os
+from dotenv import load_dotenv
+
+# Automatically load variables from .env file located in the script's directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+env_path = os.path.join(script_dir, '.env')
+load_dotenv(dotenv_path=env_path)
+
 # =============================================================================
 # Logging
 # =============================================================================
@@ -340,8 +348,11 @@ Environment variables:
         """,
     )
 
+    default_dict_path = os.path.join(script_dir, "Dict", "chinese_reader_dictionary_backup.json")
     parser.add_argument(
         "input",
+        nargs="?",
+        default=default_dict_path,
         help="Path to the dictionary JSON backup exported from Chinese Reader.",
     )
     parser.add_argument(
