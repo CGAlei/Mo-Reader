@@ -1,6 +1,6 @@
-# Chinread
+# Mo Reader
 
-Chinread is a powerful, offline-first Chinese reading and dictionary web application designed for language learners. It offers a standalone, serverless experience that works seamlessly across desktop and mobile devices.
+Mo reader is a powerful, offline-first Chinese reading and dictionary web application designed for language learners. It offers a standalone, serverless experience that works seamlessly across desktop and mobile devices.
 
 ## Key Features
 
