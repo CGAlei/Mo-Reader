@@ -1337,7 +1337,7 @@
   ],
   [
     "八成",
-    "ochenta por ciento / 80% / probable"
+    "ochenta por ciento / mayoría / probable"
   ],
   [
     "公事",
@@ -1345,7 +1345,7 @@
   ],
   [
     "公关",
-    "relaciones públicas / PR / comunicación"
+    "relaciones públicas / comunicación / marketing"
   ],
   [
     "公布",
@@ -1721,7 +1721,7 @@
   ],
   [
     "制逼",
-    "coerción / presión / constricción"
+    "coerción / presión / control"
   ],
   [
     "刺激",
@@ -2585,7 +2585,7 @@
   ],
   [
     "国产",
-    "nacional / hecho en casa / local"
+    "nacional / local / hecho en casa"
   ],
   [
     "国内",
@@ -2805,7 +2805,7 @@
   ],
   [
     "外汇",
-    "divisas / moneda extranjera / cambio"
+    "divisas / cambio de moneda / mercado de divisas"
   ],
   [
     "外部环境",
@@ -3133,7 +3133,7 @@
   ],
   [
     "宏观",
-    "macro / amplio / general"
+    "macroeconómico / general / amplio"
   ],
   [
     "宗教",
@@ -3461,7 +3461,7 @@
   ],
   [
     "平米",
-    "metro cuadrado / m² / superficie"
+    "metro cuadrado / superficie / área"
   ],
   [
     "平衡",
@@ -3473,7 +3473,7 @@
   ],
   [
     "年产",
-    "producción anual / producción por año / output anual"
+    "producción anual / output anual / cantidad anual"
   ],
   [
     "年代",
@@ -4057,7 +4057,7 @@
   ],
   [
     "成",
-    "lograr / conseguir / alcanzar"
+    "lograr / alcanzar / conseguir"
   ],
   [
     "成为",
@@ -4457,7 +4457,7 @@
   ],
   [
     "振奋人心",
-    "inspirador / motivador / emocionante"
+    "inspirador / emocionante / motivador"
   ],
   [
     "捆绑",
@@ -5185,7 +5185,7 @@
   ],
   [
     "最牛",
-    "el mejor / el más fuerte / el más destacado"
+    "el mejor / el más destacado / el más fuerte"
   ],
   [
     "最终",
@@ -5445,7 +5445,7 @@
   ],
   [
     "构成",
-    "composición / formación / estructura"
+    "composición / estructura / formación"
   ],
   [
     "构筑",
@@ -5497,7 +5497,7 @@
   ],
   [
     "核心技术",
-    "tecnología clave / tecnología esencial / tecnología central"
+    "tecnología clave / tecnología esencial / tecnología fundamental"
   ],
   [
     "核战争",
@@ -5693,7 +5693,7 @@
   ],
   [
     "毫米",
-    "milímetro / mm / medida pequeña"
+    "milímetro / medida pequeña / longitud"
   ],
   [
     "民众",
@@ -5729,7 +5729,7 @@
   ],
   [
     "求作体",
-    "cuerpo de solicitud / cuerpo de trabajo / documento"
+    "cuerpo de solicitud / documento de solicitud / propuesta"
   ],
   [
     "求生",
@@ -6237,7 +6237,7 @@
   ],
   [
     "瑞士",
-    "Suiza / país suizo / helvético"
+    "Suiza / país europeo / nación"
   ],
   [
     "瑞达里",
@@ -6265,7 +6265,7 @@
   ],
   [
     "生产",
-    "producción / manufactura / elaboración"
+    "producción / fabricación / elaboración"
   ],
   [
     "生产力",
@@ -6417,7 +6417,7 @@
   ],
   [
     "直径",
-    "diámetro / medida / ancho"
+    "diámetro / medida circular / ancho"
   ],
   [
     "直接",
@@ -6537,7 +6537,7 @@
   ],
   [
     "研磨",
-    "moler / triturar / afilar"
+    "moler / triturar / pulir"
   ],
   [
     "研究",
@@ -6797,7 +6797,7 @@
   ],
   [
     "笔尖",
-    "punta de lápiz / extremo / nib"
+    "punta de lápiz / extremo / parte fina"
   ],
   [
     "笔记",
@@ -7457,7 +7457,7 @@
   ],
   [
     "莫",
-    "ninguno / nada / nadie"
+    "ninguno / nadie / nada"
   ],
   [
     "获取",
@@ -7681,7 +7681,7 @@
   ],
   [
     "言说",
-    "hablar / decir / expresar"
+    "hablar / expresar / comunicar"
   ],
   [
     "警告",
@@ -7881,7 +7881,7 @@
   ],
   [
     "贝法",
-    "método / técnica / enfoque"
+    "método / técnica / estrategia"
   ],
   [
     "贝鲁特",
@@ -8753,7 +8753,7 @@
   ],
   [
     "隐痛",
-    "dolor oculto / dolor interno / sufrimiento"
+    "dolor oculto / malestar / sufrimiento"
   ],
   [
     "隐秘",
@@ -9065,7 +9065,7 @@
   ],
   [
     "黑",
-    "negro / oscuro / malvado"
+    "negro / oscuro / sin luz"
   ],
   [
     "黑天鹅",
@@ -9081,6 +9081,6 @@
   ],
   [
     "议题",
-    "tema / cuestión / asunto"
+    "tema / asunto / cuestión"
   ]
 ]
