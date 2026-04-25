@@ -309,10 +309,17 @@ function loadSession(category, sessionName) {
 // ─── JSON Parser ──────────────────────────────────────────────────────────────
 function parse(json) {
     let sourceArray = [];
-    if (json.word_segments && Array.isArray(json.word_segments)) {
+    // Prefer segments[].words — it contains untimed punctuation tokens (，。！ etc.)
+    // word_segments is a flat Whisper alignment array that strips all punctuation.
+    if (json.segments && Array.isArray(json.segments) && json.segments[0]?.words) {
+        json.segments.forEach((s) => {
+            if (s.words && s.words.length > 0) {
+                s.words[0].isSegmentStart = true;
+                sourceArray.push(...s.words);
+            }
+        });
+    } else if (json.word_segments && Array.isArray(json.word_segments)) {
         sourceArray = json.word_segments;
-    } else if (json.segments && Array.isArray(json.segments) && json.segments[0]?.words) {
-        sourceArray = json.segments.flatMap(s => s.words);
     } else if (Array.isArray(json)) {
         sourceArray = json;
     }
@@ -341,6 +348,6 @@ function parse(json) {
             }
         }
         lastKnownEnd = end;
-        wordsData.push({ text: w.word.trim(), start, end });
+        wordsData.push({ text: w.word.trim(), start, end, isSegmentStart: w.isSegmentStart });
     }
 }

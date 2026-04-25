@@ -1,0 +1,288 @@
+/* ===================================================
+   EDITOR — Premium Gruvbox-themed layout
+   =================================================== */
+
+/* Google Fonts — Noto Serif SC for Chinese body,
+   Inter for all UI chrome                           */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Layout skeleton ── */
+.editor-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+    gap: 16px;
+    box-sizing: border-box;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ── Header bar ── */
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--panel-bg);
+    padding: 14px 24px;
+    border-radius: 10px;
+    box-shadow:
+        0 1px 0 rgba(255,255,255,0.04) inset,
+        var(--shadow-sm);
+    border: 1px solid var(--border);
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-title .app-icon {
+    font-size: 26px;
+    line-height: 1;
+    /* Subtle warm glow on the icon */
+    filter: drop-shadow(0 0 8px rgba(254, 128, 25, 0.5));
+}
+
+.header-title h1 {
+    font-family: 'Inter', var(--ui-font-family);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+    color: var(--text);
+}
+
+.header-title .subtitle {
+    font-family: 'Inter', var(--ui-font-family);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--next-word);
+    margin-left: 4px;
+    opacity: 0.8;
+}
+
+.header-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ── Buttons ── */
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-family: 'Inter', var(--ui-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.18s ease,
+        transform 0.15s ease,
+        box-shadow 0.18s ease,
+        filter 0.18s ease;
+    border: none;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+}
+
+.btn-primary {
+    background: var(--highlight); /* fe8019 — gruvbox orange */
+    color: #1d2021;
+    box-shadow: 0 2px 8px rgba(254, 128, 25, 0.25);
+}
+.btn-primary:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(254, 128, 25, 0.35);
+}
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    filter: none;
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+.btn-secondary:hover {
+    background: var(--panel-hover);
+    border-color: rgba(254,128,25,0.35);
+    transform: translateY(-1px);
+}
+
+/* ── File count badge (shows word count) ── */
+.file-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--next-word);
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 10px;
+    letter-spacing: 0.03em;
+}
+
+/* ── Main editor frame ── */
+.editor-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--panel-bg);
+    border-radius: 10px;
+    box-shadow:
+        0 1px 0 rgba(255,255,255,0.03) inset,
+        var(--shadow-md);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Thin top accent stripe in gruvbox orange */
+.editor-main::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--highlight) 30%,
+        rgba(254,128,25,0.3) 70%,
+        transparent 100%);
+    opacity: 0.6;
+}
+
+.textarea-container {
+    flex: 1;
+    display: flex;
+    position: relative;
+}
+
+/* ── The editing textarea ── */
+#editorArea {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    padding: 32px 56px;
+    color: var(--text);
+    font-size: 24px;
+    font-family: var(--reader-font-family);
+    line-height: 1.9;          /* comfortable but not chunky for CJK */
+    letter-spacing: 0.02em;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    caret-color: var(--highlight);
+    transition: color 0.3s, background 0.3s;
+}
+
+/* Selection highlight in warm orange */
+#editorArea::selection {
+    background: rgba(254, 128, 25, 0.25);
+    color: var(--text);
+}
+
+/* Scrollbar */
+#editorArea::-webkit-scrollbar { width: 10px; }
+#editorArea::-webkit-scrollbar-track { background: transparent; }
+#editorArea::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 6px;
+    border: 3px solid var(--panel-bg);
+}
+#editorArea::-webkit-scrollbar-thumb:hover {
+    background: var(--next-word);
+}
+
+/* ── Empty state ── */
+.editor-empty-state {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    color: var(--next-word);
+    pointer-events: none;
+    text-align: center;
+    user-select: none;
+}
+
+.editor-empty-state .empty-icon {
+    font-size: 52px;
+    line-height: 1;
+    opacity: 0.5;
+    /* subtle pulse */
+    animation: idle-pulse 3s ease-in-out infinite;
+}
+
+@keyframes idle-pulse {
+    0%, 100% { transform: scale(1);    opacity: 0.5; }
+    50%       { transform: scale(1.07); opacity: 0.7; }
+}
+
+.editor-empty-state .empty-label {
+    font-family: 'Inter', var(--ui-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 300px;
+    line-height: 1.6;
+    opacity: 0.6;
+}
+
+/* ── Footer status bar ── */
+.editor-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 24px;
+    border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.15);
+}
+
+.footer-hint {
+    font-family: 'Inter', var(--ui-font-family);
+    font-size: 11px;
+    color: var(--next-word);
+    opacity: 0.7;
+    letter-spacing: 0.02em;
+}
+
+/* ── Toast status message ── */
+#statusMsg {
+    position: absolute;
+    bottom: 24px;
+    right: 30px;
+    background: var(--highlight);
+    color: #1d2021;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-family: 'Inter', var(--ui-font-family);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(254,128,25,0.4);
+    z-index: 10;
+}
+
+#statusMsg.show {
+    opacity: 1;
+    transform: translateY(0);
+}

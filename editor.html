@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="gruvbox">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcription Editor — Mo-Reader</title>
+
+    <!-- CSS Modules -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+    <div class="editor-layout">
+
+        <header class="editor-header">
+            <div class="header-title">
+                <span class="app-icon">✍️</span>
+                <h1>Transcription Editor</h1>
+                <span class="subtitle">Mo-Reader</span>
+            </div>
+
+            <div class="header-controls">
+                <span class="file-badge" id="wordCount">No file loaded</span>
+
+                <button class="btn-secondary" id="btnLoad">
+                    <span>📂</span> Load JSON
+                </button>
+                <input type="file" id="fileInput" accept=".json" style="display: none;" />
+
+                <button class="btn-primary" id="btnExport" disabled>
+                    <span>💾</span> Export JSON
+                </button>
+            </div>
+        </header>
+
+        <main class="editor-main">
+            <div class="textarea-container">
+                <textarea id="editorArea" spellcheck="false"></textarea>
+
+                <div class="editor-empty-state" id="emptyState">
+                    <span class="empty-icon">📄</span>
+                    <span class="empty-label">Load a word-timed JSON transcription to begin editing punctuation and paragraphs.</span>
+                </div>
+            </div>
+
+            <footer class="editor-footer">
+                <span class="footer-hint" id="footerHint">Press <kbd style="background:rgba(255,255,255,0.08);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:10px;">Enter ↵</kbd> twice to create a new paragraph segment.</span>
+                <span class="footer-hint" id="charCount"></span>
+            </footer>
+
+            <div id="statusMsg"></div>
+        </main>
+
+    </div>
+
+    <!-- App Logic -->
+    <script src="js/editor.js" defer></script>
+</body>
+</html>

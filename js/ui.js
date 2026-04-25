@@ -160,6 +160,13 @@ export function renderTranscript(wordsData) {
     const fragment = document.createDocumentFragment();
 
     wordsData.forEach((w) => {
+        if (w.isSegmentStart && wordElements.length > 0) {
+            // Subtle paragraph divider — much tighter than two <br> elements
+            const br = document.createElement('div');
+            br.className = 'segment-break';
+            fragment.appendChild(br);
+        }
+
         const span = document.createElement("span");
         span.className = "word";
         span.textContent = w.text;

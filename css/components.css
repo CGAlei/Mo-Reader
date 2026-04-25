@@ -522,8 +522,16 @@ body.focus-mode .settings-bar {
     will-change: transform, color, background;
 }
 .word:hover { color: var(--highlight); }
-.word.next { color: var(--next-word); }
+.word.next   { color: var(--next-word); }
 .word.active { z-index: 10; font-weight: bold; }
+
+/* ── Segment paragraph break ── */
+.segment-break {
+    display: block;
+    width: 100%;
+    height: 0.6em;   /* tight but visible gap between segments */
+    pointer-events: none;
+}
 
 /* ── Dictionary Known-Word Highlight ── */
 /* Uses ::before so it never conflicts with the ::after karaoke underline */
